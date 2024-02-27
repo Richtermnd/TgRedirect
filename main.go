@@ -13,6 +13,7 @@ func Redirect(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 	http.HandleFunc("/tg/proxy", Redirect)
+	log.Println("Start server")
 	if err := http.ListenAndServe(":9999", nil); err != nil {
 		log.Fatal(err)
 	}

@@ -2,12 +2,10 @@ FROM golang:latest
 
 WORKDIR "/app"
 
-COPY ["./go.mod", "./go.sum", "./"]
+COPY ["./go.mod", "./"]
 ADD . .
 
-EXPOSE 9999
-
-RUN go mod download
+EXPOSE 8000
 
 RUN CGO_ENABLED=0 GOOS=linux go build -o ./bin ./
 
